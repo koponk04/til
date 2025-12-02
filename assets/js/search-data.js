@@ -86,11 +86,6 @@ ninja.data = [{
           description: "Output a simple greeting message to familiarize with syntax and output commands.",
           section: "Projects",handler: () => {
               window.location.href = "/til/projects/001_project.html";
-            },},{id: "projects-project-1",
-          title: 'project 1',
-          description: "with background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/til/projects/1_project.html";
             },},{id: "projects-project-2",
           title: 'project 2',
           description: "a project with a background image and giscus comments",
@@ -116,11 +111,6 @@ ninja.data = [{
           description: "a project with no image",
           section: "Projects",handler: () => {
               window.location.href = "/til/projects/6_project.html";
-            },},{id: "projects-project-7",
-          title: 'project 7',
-          description: "with background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/til/projects/7_project.html";
             },},{id: "projects-project-8",
           title: 'project 8',
           description: "an other project with a background image and giscus comments",
