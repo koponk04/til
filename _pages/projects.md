@@ -1,11 +1,28 @@
 ---
 layout: page
-title: projects
+title: Projects for Learning Programming
+short_title: Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Defines a clear set of small, contained tasks that build core programming competency through direct implementation. Focuses on practical skill formation, incremental complexity, and repetition of fundamentals without reliance on theory or external scaffolding.
 nav: true
 nav_order: 3
-display_categories: [work, fun]
+display_categories: [
+  "Basics (syntax, data types, variables)",
+  Control Structures (conditionals, loops),
+  Functions and Procedures,
+  Data Structures (arrays, lists, dictionaries),
+  Object-Oriented Programming (classes, objects, inheritance),
+  Error Handling and Debugging,
+  Input and Output (file handling, user input),
+  Algorithms and Problem Solving,
+  Memory Management and Performance,
+  Concurrency and Parallelism,
+  Libraries and Frameworks,
+  Testing and Documentation,
+  Version Control and Collaboration,
+  Advanced Concepts (metaprogramming, reflection),
+  Language-Specific Features and Tools
+] # , fun
 horizontal: false
 ---
 

@@ -1,35 +1,60 @@
 <div class="col">
-  <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}">
-    <div class="card h-100 hoverable">
-      {% if project.img %}
-        {%
-          include figure.liquid
-          loading="eager"
-          path=project.img
-          sizes = "250px"
-          alt="project thumbnail"
-          class="card-img-top"
-        %}
-      {% endif %}
-      <div class="card-body">
+
+  <div class="card h-100 hoverable">
+    {% if project.img %}
+      {%
+        include figure.liquid
+        loading="eager"
+        path=project.img
+        sizes = "250px"
+        alt="project thumbnail"
+        class="card-img-top"
+      %}
+    {% endif %}
+    <div class="card-body">
+      <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}">
         <h2 class="card-title">{{ project.title }}</h2>
-        <p class="card-text">{{ project.description }}</p>
-        <div class="row ml-1 mr-1 p-0">
-          {% if project.github %}
-            <div class="github-icon">
-              <div class="icon" data-toggle="tooltip" title="Code Repository">
-                <a href="{{ project.github }}"><i class="fa-brands fa-github gh-icon"></i></a>
-              </div>
-              {% if project.github_stars %}
-                <span class="stars" data-toggle="tooltip" title="GitHub Stars">
-                  <i class="fa-solid fa-star"></i>
-                  <span id="{{ project.github_stars }}-stars"></span>
-                </span>
-              {% endif %}
+      </a>
+      <p class="card-text">{{ project.description }}</p>
+      <div class="row ml-1 mr-1 p-0">
+        {% if project.tags %}
+          <div class="tags mb-2" style="display: flex; flex-wrap: wrap; gap: 4px;">
+            {% assign tag_colors = "COBOL,#ff6666;Python,#4d79ff;Java,#f89820;PHP,#787cb5;Go,#00add8" | split:";" %}
+
+            {% for tag in project.tags %}
+              {% assign tag_clean = tag | strip %}
+              {% assign color = "#ccc" %}
+              {% for t in tag_colors %}
+                {% assign parts = t | split:"," %}
+                {% assign key = parts[0] | strip %}
+                {% assign value = parts[1] | strip %}
+                {% if key == tag_clean %}
+                  {% assign color = value %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+              <span class="tag" style="background-color: {{ color }}; border-radius: 4px; padding: 2px 8px; font-size: 0.85em;">
+                <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}#{{ tag_clean }}" style="color: #fff; text-decoration: none;">{{ tag_clean }}</a>
+              </span>
+            {% endfor %}
+          </div>
+
+
+        {% endif %}
+        {% if project.github %}
+          <div class="github-icon">
+            <div class="icon" data-toggle="tooltip" title="Code Repository">
+              <a href="{{ project.github }}"><i class="fa-brands fa-github gh-icon"></i></a>
             </div>
-          {% endif %}
-        </div>
+            {% if project.github_stars %}
+              <span class="stars" data-toggle="tooltip" title="GitHub Stars">
+                <i class="fa-solid fa-star"></i>
+                <span id="{{ project.github_stars }}-stars"></span>
+              </span>
+            {% endif %}
+          </div>
+        {% endif %}
       </div>
     </div>
-  </a>
+  </div>
 </div>
