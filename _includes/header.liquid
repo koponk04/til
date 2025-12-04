@@ -2,28 +2,23 @@
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
-      {% if page.permalink != '/' %}
-        <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
-          {% if site.title == 'blank' %}
-            {% if site.first_name %}
-              <span class="font-weight-bold">
-                {{- site.first_name -}}
-              </span>
-            {% endif %}
-            {% if site.middle_name %}
-              {{- site.middle_name -}}
-            {% endif %}
-            {% if site.last_name %}
-              {{- site.last_name -}}
-            {% endif %}
-          {% else %}
-            {{- site.title -}}
+      <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
+        {% if site.title == 'blank' %}
+          {% if site.first_name %}
+            <span class="font-weight-bold">
+              {{- site.first_name -}}
+            </span>
           {% endif %}
-        </a>
-      {% elsif site.enable_navbar_social %}
-        <!-- Social Icons -->
-        <div class="navbar-brand social">{% include social.liquid %}</div>
-      {% endif %}
+          {% if site.middle_name %}
+            {{- site.middle_name -}}
+          {% endif %}
+          {% if site.last_name %}
+            {{- site.last_name -}}
+          {% endif %}
+        {% else %}
+          {{- site.title -}}
+        {% endif %}
+      </a>
       <!-- Navbar Toggle -->
       <button
         class="navbar-toggler collapsed ml-auto"
@@ -66,6 +61,15 @@
                   {% if page.title == child.title %}
                     {% assign has_active_child = true %}
                   {% endif %}
+                  {% if child.dropdown_2 %}
+                    {% assign has_active_grandchild = false %}
+                    {% for grandchild in child.children %}
+                      {% if page.title == grandchild.title %}
+                        {% assign has_active_grandchild = true %}
+                        {% assign has_active_child = true %}
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
                 {% endfor %}
                 <li class="nav-item dropdown {% if page.title == p.title or has_active_child %}active{% endif %}">
                   <a
@@ -86,6 +90,23 @@
                     {% for child in p.children %}
                       {% if child.title == 'divider' %}
                         <div class="dropdown-divider"></div>
+                      {% elsif child.dropdown_2 %}
+                        <div class="dropdown-submenu">
+                          <a class="dropdown-item dropdown-toggle {% if page.title == child.title or has_active_grandchild %}active{% endif %}" href="#">
+                            {{ child.title }}
+                          </a>
+                          <div class="dropdown-menu">
+                            {% for grandchild in child.children %}
+                              {% if child.title == 'divider' %}
+                                <div class="dropdown-divider"></div>
+                              {% else %}
+                                <a class="dropdown-item {% if page.title == grandchild.title %}active{% endif %}" href="{{ grandchild.permalink | relative_url }}">
+                                  {{ grandchild.title }}
+                                </a>
+                              {% endif %}
+                            {% endfor %}
+                          </div>
+                        </div>
                       {% else %}
                         <a
                           class="dropdown-item {% if page.title == child.title %}active{% endif %}"

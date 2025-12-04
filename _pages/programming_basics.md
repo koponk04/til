@@ -2,9 +2,9 @@
 layout: page
 title: Projects for Learning Programming
 short_title: Projects
-permalink: /projects/
+permalink: /programming_basics/
 description: Defines a clear set of small, contained tasks that build core programming competency through direct implementation. Focuses on practical skill formation, incremental complexity, and repetition of fundamentals without reliance on theory or external scaffolding.
-nav: true
+nav: false
 nav_order: 3
 display_categories: [
   "Basics (syntax, data types, variables)",
