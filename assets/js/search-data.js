@@ -7,35 +7,35 @@ ninja.data = [{
     title: "About",
     section: "Navigation",
     handler: () => {
-      window.location.href = "/til/";
+      window.location.href = "/";
     },
   },{id: "dropdown-basics",
               title: "Basics",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/til/programming_basics/";
+                window.location.href = "/programming_basics/";
               },
             },{id: "dropdown-mini-projects",
               title: "Mini Projects",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/til/programming_mini_projects/";
+                window.location.href = "/programming_mini_projects/";
               },
             },{id: "dropdown-algorithms",
               title: "Algorithms",
               description: "",
               section: "Dropdown",
               handler: () => {
-                window.location.href = "/til/programming_algorithms/";
+                window.location.href = "/programming_algorithms/";
               },
             },{id: "nav-exploration",
           title: "Exploration",
           description: "empty",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/til/exploration/";
+            window.location.href = "/exploration/";
           },
         },{id: "dropdown-2026",
               title: "2026",
@@ -69,27 +69,27 @@ ninja.data = [{
           title: 'December 2025',
           description: "",
           section: "Articles",handler: () => {
-              window.location.href = "/til/articles/2025/december.html";
+              window.location.href = "/articles/2025/december.html";
             },},{id: "articles-january-2026",
           title: 'January 2026',
           description: "",
           section: "Articles",handler: () => {
-              window.location.href = "/til/articles/2026/january.html";
+              window.location.href = "/articles/2026/january.html";
             },},{id: "daily_reports-december-2025",
           title: 'December 2025',
           description: "",
           section: "Daily_reports",handler: () => {
-              window.location.href = "/til/daily_reports/2025/december.html";
+              window.location.href = "/daily_reports/2025/december.html";
             },},{id: "daily_reports-january-2026",
           title: 'January 2026',
           description: "",
           section: "Daily_reports",handler: () => {
-              window.location.href = "/til/daily_reports/2026/january.html";
+              window.location.href = "/daily_reports/2026/january.html";
             },},{id: "projects-hello-world",
           title: 'Hello World',
           description: "Output a simple greeting message to familiarize with syntax and output commands.",
           section: "Projects",handler: () => {
-              window.location.href = "/til/projects/001_project.html";
+              window.location.href = "/projects/001_project.html";
             },},{
         id: 'social-cv',
         title: 'CV',
