@@ -4,7 +4,9 @@ title: Hello World
 description: Output a simple greeting message to familiarize with syntax and output commands.
 # img: assets/img/12.jpg
 importance: 1
-category: "Basics (syntax, data types, variables)"
+category: 
+  - "Basics (syntax, data types, variables)"
+  - Algorithms and Problem Solving
 related_publications: false
 tags:
   - COBOL

@@ -8,22 +8,22 @@ nav: false
 nav_order: 3
 display_categories: [
   "Basics (syntax, data types, variables)",
-  Control Structures (conditionals, loops),
+  "Control Structures (conditionals, loops)",
   Functions and Procedures,
-  Data Structures (arrays, lists, dictionaries),
-  Object-Oriented Programming (classes, objects, inheritance),
+  "Data Structures (arrays, lists, dictionaries)",
+  "Object-Oriented Programming (classes, objects, inheritance)",
   Error Handling and Debugging,
-  Input and Output (file handling, user input),
+  "Input and Output (file handling, user input)",
   Algorithms and Problem Solving,
   Memory Management and Performance,
   Concurrency and Parallelism,
   Libraries and Frameworks,
   Testing and Documentation,
   Version Control and Collaboration,
-  Advanced Concepts (metaprogramming, reflection),
+  "Advanced Concepts (metaprogramming, reflection)",
   Language-Specific Features and Tools
 ] # , fun
-horizontal: false
+horizontal: true
 ---
 
 <!-- pages/projects.md -->
@@ -40,16 +40,44 @@ horizontal: false
   {% if page.horizontal %}
   <div class="container">
     <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
+    {% for project in sorted_projects limit:5 %}
       {% include projects_horizontal.liquid %}
     {% endfor %}
+    {% if categorized_projects.size > 5 %}
+      <div class="col mb-4">
+        <div class="card h-100 hoverable d-flex flex-column justify-content-center text-center">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a
+              class="btn btn-outline-primary mx-auto px-4"
+              href="{{ '/projects/category/' | append: category_id | append: '/' | relative_url }}"
+            >
+              Show more
+            </a>
+          </div>
+        </div>
+      </div>
+    {% endif %}
     </div>
   </div>
   {% else %}
   <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
+    {% for project in sorted_projects limit:5 %}
       {% include projects.liquid %}
     {% endfor %}
+    {% if categorized_projects.size > 5 %}
+      <div class="col">
+        <div class="card h-100 hoverable d-flex flex-column justify-content-center text-center">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a
+              class="btn btn-outline-primary mx-auto px-4"
+              href="{{ '/projects/category/' | append: category_id | append: '/' | relative_url }}"
+            >
+              Show more
+            </a>
+          </div>
+        </div>
+      </div>
+    {% endif %}
   </div>
   {% endif %}
   {% endfor %}
