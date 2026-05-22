@@ -156,6 +156,22 @@
               </button>
             </li>
           {% endif %}
+          &nbsp;&nbsp;&nbsp;
+          {% if site.enable_en_lang %}
+            <!-- Toogle language -->
+            <li class="toggle-container">
+              <div
+                id="lang-toggle"
+                class="lang-toggle"
+                aria-label="Language / Bahasa"
+                aria-pressed="false"
+              >
+                <span class="lang-toggle__opt" data-lang="en" aria-hidden="true" id="lang-toggle-en" tabindex="0" role="button">EN</span>
+                <span class="lang-toggle__sep" aria-hidden="true">|</span>
+                <span class="lang-toggle__opt" data-lang="id" aria-hidden="true" id="lang-toggle-id" tabindex="0" role="button">ID</span>
+              </div>
+            </li>
+          {% endif %}
         </ul>
       </div>
     </div>

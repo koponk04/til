@@ -84,6 +84,25 @@
   </script>
 {% endif %}
 
+{% if site.enable_en_lang %}
+  <!-- Dark Mode -->
+  <script src="{{ '/assets/js/language.js' | relative_url | bust_file_cache }}"></script>
+  <script>
+    function waitForInit() {
+      if (typeof initLanguage === 'undefined') {
+        setTimeout(waitForInit, 50);
+        return;
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLanguage);
+      } else {
+        initLanguage();
+      }
+    }
+    waitForInit();
+  </script>
+{% endif %}
+
 {% if page.map %}
   <!-- GeoJSON support via Leaflet -->
   <link

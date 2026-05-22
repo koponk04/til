@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Projects for Learning Programming
+title_id: Proyek buat Belajar Programming
 short_title: Projects
 permalink: /programming_basics/
 description: Defines a clear set of small, contained tasks that build core programming competency through direct implementation. Focuses on practical skill formation, incremental complexity, and repetition of fundamentals without reliance on theory or external scaffolding.

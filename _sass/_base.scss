@@ -1496,3 +1496,20 @@ figure.cover {
 mjx-container[jax="CHTML"][display="true"] {
   overflow-x: auto;
 }
+
+.lang-toggle {
+  display: inline-flex;
+  gap: .4rem;
+  align-items: center;
+  padding: .5rem .6rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.9rem;
+}
+
+.lang-toggle__opt { opacity: .45; font-weight: 600; }
+.lang-toggle[data-active="en"] .lang-toggle__opt[data-lang="en"],
+.lang-toggle[data-active="id"] .lang-toggle__opt[data-lang="id"] {
+  opacity: 1;
+}
